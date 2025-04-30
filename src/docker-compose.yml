@@ -1,6 +1,0 @@
-services:
-  rsde-tool:
-    build:
-     context: .
-    container_name: rsde-tool
-    
