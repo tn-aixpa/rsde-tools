@@ -24,15 +24,16 @@ RUN conda install scikit-image scikit-learn pandas
 #RUN /bin/bash -c ". activate test"
 #RUN conda activate test
 
-# STEPS
-#1  conda update -n base conda
-#2. conda config --add channels conda-forge
-#3. conda update –all 
-#4. conda create –-name test python=3.10  
-#5. conda activate test
-#6. conda install gdal=3.10.1
-#7. conda install libgdal-jp2openjpeg
-#9. Change to project directory /.
-#8. pip install -r requirements.txt
-#9. python main.py
-#10.log artifacts
+## STEPS
+#1   conda update -n base conda
+#2.  conda config --add channels conda-forge
+#3.  conda update –all 
+#4.  conda create –-name test python=3.10  
+#5.  conda activate test
+#6.  conda install gdal=3.10.1
+#7.  conda install libgdal-jp2openjpeg
+#9.  conda install scikit-image scikit-learn pandas
+#    Change to project directory /.
+#10. pip install -r requirements.txt
+#11. python main.py
+#12. log artifacts
