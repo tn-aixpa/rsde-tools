@@ -1,23 +1,27 @@
-FROM ubuntu:24.04
+FROM ubuntu:18.04
 
-# update apt and get miniconda
 RUN apt-get update \
-    && apt-get install -y wget \
-    && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-
-USER 1000
-
-# install miniconda
-ENV PATH="/home/ubuntu/miniconda3/bin:$PATH"
-RUN mkdir /home/ubuntu/.conda && bash Miniconda3-latest-Linux-x86_64.sh -b
+    && apt-get install -y software-properties-common \
+    && add-apt-repository -y ppa:deadsnakes/ppa \
+    && apt-get install -y python \
+	&& apt-get install -y wget \ 
+	&& wget https://repo.anaconda.com/miniconda/Miniconda3-py39_22.11.1-1-Linux-x86_64.sh
+	
+RUN useradd -m -u 8877 nonroot
+USER 8877
+	
+ENV PATH="/home/nonroot/miniconda3/bin:$PATH"
+RUN mkdir /home/nonroot/.conda && bash Miniconda3-py39_22.11.1-1-Linux-x86_64.sh -b
 
 # create conda environment
-RUN conda init bash && . ~/.bashrc 
-RUN conda update --name base conda
+RUN conda init bash && . ~/.bashrc
+RUN conda config --set channel_priority flexible
 RUN conda config --add channels conda-forge
-RUN conda update --all
-RUN conda create --name rsde python=3.10
+RUN conda create --name rsde python=3.9
 SHELL ["conda", "run", "-n", "rsde", "/bin/bash", "-c"]
-RUN conda install gdal=3.10.1 && conda install libgdal-jp2openjpeg && conda install scikit-image scikit-learn pandas
+RUN conda install terradue::snapista -y
+RUN conda install libgdal-jp2openjpeg -y
+RUN conda install scikit-image scikit-learn pandas -y
 RUN echo "conda activate rsde" >> ~/.bashrc
+
 ENTRYPOINT [ "/bin/bash" ]
