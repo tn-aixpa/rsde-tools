@@ -12,9 +12,10 @@ RUN mkdir /home/nonroot/.conda && bash Miniconda3-py39_22.11.1-1-Linux-x86_64.sh
 
 # create conda environment
 RUN conda init bash && . ~/.bashrc
-RUN conda create --name rsde-snapista python=3.9 -y
-RUN conda activate rsde-snapista && conda config --add channels conda-forge && conda install -n base mamba && mamba install -c terradue snapista -y \
- 
+RUN conda create --name rsde-snapista python=3.9 -y 
+SHELL ["conda", "run", "-n", "rsde-snapista", "/bin/bash", "-c"]
+RUN conda config --add channels conda-forge && conda install -c terradue snapista -y
+
 RUN conda activate rsde-snapista >> ~/.bashrc
 
 ENTRYPOINT [ "/bin/bash" ]
