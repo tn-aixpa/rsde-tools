@@ -12,10 +12,10 @@ RUN mkdir /home/nonroot/.conda && bash Miniforge3-4.13.0-1-Linux-x86_64.sh -b
 
 # install snapista 
 RUN conda init bash && . ~/.bashrc 
-RUN conda config --add channels conda-forge
 RUN conda install -n base mamba
 RUN mamba install -c terradue snapista -y
-RUN mamba install dal=3.10.1 -y && conda install libgdal-jp2openjpeg -y
+RUN mamba install dal=3.10.1 -y
+RUN mamba install libgdal-jp2openjpeg -y
 RUN mamba install scikit-image scikit-learn pandas -y
 
 ENTRYPOINT [ "/bin/bash" ]
