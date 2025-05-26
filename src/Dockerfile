@@ -12,7 +12,10 @@ RUN mkdir /home/nonroot/.conda && bash Miniforge3-4.13.0-1-Linux-x86_64.sh -b
 
 # install snapista 
 RUN conda init bash && . ~/.bashrc 
-RUN conda install -c terradue snapista -y && conda install gdal=3.10.1 -y && conda install libgdal-jp2openjpeg -y && conda install scikit-image scikit-learn pandas -y
+RUN conda install -c terradue snapista -y 
+	&& conda install gdal -y 
+	&& conda install libgdal-jp2openjpeg -y 
+	&& conda install scikit-image scikit-learn pandas -y
 
 ENTRYPOINT [ "/bin/bash" ]
 
