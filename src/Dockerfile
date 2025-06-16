@@ -17,13 +17,15 @@ RUN snap --nosplash --nogui --modules --update-all 2>&1 | while read -r line; do
 
 ## create conda environment
 RUN conda init bash && . ~/.bashrc
-RUN conda config --add channels conda-forge
-RUN conda create --name rsde python=3.10
-SHELL ["conda", "run", "-n", "rsde", "/bin/bash", "-c"]
 
+RUN conda init bash && . ~/.bashrc 
+RUN conda install -n base mamba
+RUN mamba install gdal=3.10.1 -y
+RUN mamba install libgdal-jp2openjpeg -y
+RUN mamba install scikit-image scikit-learn pandas -y
 RUN snap --nosplash --nogui --modules --install eu.esa.snap.esa.snappy \
-    && snap --nogui --nosplash --snappy /home/nonroot/miniconda3/envs/rsde/bin/python3.10 \
-    && cp -r /home/nonroot/.snap/snap-python/esa_snappy /home/nonroot/miniconda3/envs/rsde/lib/python3.10/site-packages/ \
+    && snap --nogui --nosplash --snappy /home/nonroot/miniforge3/bin/python \
+    && cp -r /home/nonroot/.snap/snap-python/esa_snappy /home/nonroot/miniforge3/lib/python3.10/site-packages/ \
 	&& conda install gdal=3.10.1 -y \
 	&& conda install libgdal-jp2openjpeg -y \
 	&& conda install scikit-image scikit-learn pandas -y
