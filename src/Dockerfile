@@ -30,5 +30,4 @@ RUN snap --nosplash --nogui --modules --install eu.esa.snap.esa.snappy \
 	&& conda install libgdal-jp2openjpeg -y \
 	&& conda install scikit-image scikit-learn pandas -y
 
-RUN echo "conda activate rsde" >> ~/.bashrc
 ENTRYPOINT [ "/bin/bash" ]
