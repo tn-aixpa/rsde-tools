@@ -33,6 +33,10 @@ Simplified setup for new projects—no need to install dependencies manually.
 
 docker build -t rsde-tool .
 
+## Usage
+
+Tool usage documentation [here](./docs/usage.md).
+
 ## License
 
 [Apache License 2.0](./LICENSE)
