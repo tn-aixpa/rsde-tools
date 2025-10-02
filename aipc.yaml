@@ -1,0 +1,17 @@
+ai: Remote Sensing Tools
+domain: PA
+usages: ./docs/usage.md
+metadata:
+  name: RSDE-TOOLS
+  description: >
+    A base Docker image pre-configured with essential libraries and tools for remote sensing workflows.
+  kind: product-template
+  ai: Remote Sensing
+  domain: PA
+  license: Apache License 2.0
+usage:
+  target_users:
+    - PA operators (municipalities, regional operators, etc.), Data scientists, researchers, and developers working on remote sensing applications.
+  documentation_links:
+    - usage: ./docs/usage.md
+
