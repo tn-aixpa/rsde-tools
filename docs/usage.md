@@ -1,10 +1,16 @@
 # RSDE-TOOLS
 
+The main purpose of the tool is to provide perform for different usecases scenarios of remote sensing such as deforestation, flood mapping, and landslide monitoring.
+
 ## Usage Scenario
 
-Use as a base image in your own Dockerfile:
+It can be sse as a base image in your own remote sensing scenario specific Dockerfile:
 
-FROM rsde-tools:latest
+FROM ghcr.io/tn-aixpa/rsde-tools:latest
+
+RUN conda init bash && . ~/.bashrc 
+
+...
 
 
 

@@ -23,13 +23,7 @@ Simplified setup for new projects—no need to install dependencies manually.
 
 - GDAL – Geospatial Data Abstraction Library
 
-- Rasterio – Pythonic raster handling
-
-- Geopandas – Spatial operations on vector data
-
-- Shapely – Geometric operations
-
-- OpenCV – Image processing
+- Snapista - SNAP GPT Python wrapper
 
 - scikit-image – Scientific image analysis
 
