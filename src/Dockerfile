@@ -11,7 +11,7 @@ RUN mkdir /home/nonroot/.conda && bash Miniforge3-4.13.0-1-Linux-x86_64.sh -b
 
 # install snapista 
 RUN conda init bash && . ~/.bashrc 
-RUN conda install -n base mamba=2.2.0
+RUN conda install -n base mamba=2.2.0 --no-update-deps
 RUN mamba install -c terradue snapista -y
 RUN mamba install gdal=3.11.0 -y
 RUN mamba install libgdal-jp2openjpeg -y
