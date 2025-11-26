@@ -15,7 +15,7 @@ RUN conda init bash && . ~/.bashrc
 RUN conda install -c terradue snapista==0.2.0 -y
 RUN conda install -c conda-forge gdal==3.11.0 libgdal-jp2openjpeg -y
 RUN conda install -c conda-forge scikit-image==0.24.0 scikit-learn==1.6.1 pandas==2.3.0 -y
-RUN conda install -c conda-forge libgcc==14.2.0 -y
+RUN conda install -c conda-forge libgcc -y
 RUN conda install -c conda-forge libgfortran5 -y
 USER root
 RUN ldconfig /home/nonroot/miniforge3/lib
